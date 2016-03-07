@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="UTF-8"> 
+<head>
+<!-- Loads AngularJS which allows double bracket two-way bindings to variables in games.js -->
+<!-- AngularJS is a new two for building "single page" web applications with javascript -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-animate.min.js"/></script>
+<!-- Loads the code - functions and variables -->
+<script src="game.js"></script> 
+
+<!-- Console based "Codecademy" version-->
+<!-- <script src="/script.js"></script>-->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body>
+    
+<div ng-app="game" ng-controller="GameController as gc">
+  <div class="row">
+    <div class="col-xs-12 box2">
+      <img src="img/paper.jpg" class="img-responsive center-block"></img>
+      <h2>{{gc.msgbox}}</h2>
+    </div>
+  </div>
+    <div class='row' id='r'>
+        <div class='col-xs-4 box-sm {{gc.rSize}}' ng-click="gc.decideWinner('rock')"><img class="img-responsive center-block" src="img/rock-sm.PNG"></div>
+        <div class='col-xs-4 box-sm {{gc.pSize}}' ng-click="gc.decideWinner('paper')"><img class="img-responsive center-block" src="img/paper-sm.PNG"></div>
+        <div class='col-xs-4 box-sm {{gc.sSize}}' ng-click="gc.decideWinner('scissors')"><img class="img-responsive center-block" src="img/scissors-sm.PNG"></div>
+    </div>
+  <div class="row">
+    <div class="col-xs-12 box-sm">
+      <button class="btn" ng-click="gc.decideWinner('rock')">ROCK  </button>
+      <button class="btn" ng-click="gc.decideWinner('paper')">PAPER </button>
+      <button class="btn" ng-click="gc.decideWinner('scissors')">SCISSORS</button>
+      <p>Your Choice: {{gc.userChoice}}</p>
+      <p>Computer: {{gc.computerChoice}}</p>
+      <h3>{{gc.winner}}</h3>
+      <p>Your Wins: {{gc.userWins}} - Computer Wins: {{gc.computerWins}}</p>
+      <p>Draws: {{gc.draws}}</p>
+      <p>{{gc.rWins}} rock wins!  {{gc.pWins}} paper wins!  {{gc.sWins}} scissor wins!</p>
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html> 
